@@ -26,7 +26,6 @@
 			var pcode = $("#countryCode").val();
 			var pnum = $("#phone").val();
 			if(pnum.charAt(0)=="+"){
-				console.log(pnum.charAt(0));
 				var phone=pnum;
 				// location.href=`https://api.whatsapp.com/send/?phone=${phone}`;
 				location.href=`https://wa.me/${phone}`;
