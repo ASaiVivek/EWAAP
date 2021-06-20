@@ -4,7 +4,10 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="undefined" crossorigin="anonymous">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 	<style type="text/css">
 		h1{
 			font-family: 'Dela Gothic One', cursive;
@@ -19,10 +22,12 @@
 		#phone{
 			margin-top: 5px;
 		}
+		.alert{
+			width:30%;
+		}
 	</style>
 	<script type="text/javascript">
-		function GetPhone()
-		{
+		function GetPhone(){
 			var pcode = $("#countryCode").val();
 			var pnum = $("#phone").val();
 			if(pnum.charAt(0)=="+"){
@@ -37,11 +42,28 @@
 				location.href=`https://wa.me/${phone}`;
 			}
 			else{
+				// $("#message").text("Try to enter without spaces or remove any letters");
+				shake();
 				$("#phone").val("");
 			}
 			console.log(phone);
 			return;
 		}
+		function shake() {
+        var div = document.getElementById('ErrorMessage');
+        var interval = 100;
+        var distance = 10;
+        var times = 4;
+
+        $(div).css('position', 'relative');
+
+        for (var iter = 0; iter < (times + 1) ; iter++) {
+            $(div).animate({
+                left: ((iter % 2 == 0 ? distance : distance * -1))
+            }, interval);
+        }                                                                                                          
+        $(div).animate({ left: 0 }, interval);
+    }
 	</script>
 </head>
 <body>
@@ -267,6 +289,14 @@
 		<input type="text" name="phone" id="phone">
 		<br><br>
 		<input type="submit" class="btn btn-primary" value="Send!" onclick="GetPhone()">
+	</div>
+	<br>
+	<br>
+
+	<div id="ErrorMessage">
+		<p style="text-align: center; color: red; font-size: 75%;">
+			Try to Enter Without Spaces or Letters or Special Characters
+		</p>
 	</div>
 	<!-- </form> -->
      <footer class="footer text-center py-5"> 	
