@@ -13,15 +13,27 @@
 		#container{
 			text-align: center;
 		}
+		#countryCode{
+			margin-bottom: 5px;
+		}
+		#phone{
+			margin-top: 5px;
+		}
 	</style>
 	<script type="text/javascript">
 		function GetPhone()
 		{
 			var pcode = $("#countryCode").val();
 			var pnum = $("#phone").val();
-			var phone = pcode+pnum;
+			if($.isNumeric(pnum)){
+				var phone = pcode+pnum;
+				location.href=`https://wa.me/${phone}`;
+			}
+			else{
+				$("#phone").val("");
+			}
 			console.log(phone);
-			location.href=`https://wa.me/${phone}`;
+			
 		}
 	</script>
 </head>
