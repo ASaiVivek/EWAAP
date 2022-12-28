@@ -3,6 +3,6 @@
 [EWAAP - WebAPP](https://ewaap.netlify.app/)
 
 # EWAAP
-Easy Whatsapp Texting, Send Message without saving the contact
+EWAP is an easy to use Application which helps with texting through WhatsApp, send messages without saving the contact
 
-Updates Coming Soon...
+<b>Please note that this still under testing. Updates coming soon....</b>
